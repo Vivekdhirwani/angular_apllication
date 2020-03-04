@@ -1,0 +1,103 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+    & .error_label {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+}
+
+.input__container {
+    margin-top: 1rem;
+    transition: .3s;
+    background-color: #8881f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    margin: 2rem 10rem;
+    padding: 0 2rem;
+    height: 5rem;
+
+    & .input {
+        background-color: transparent;
+        height: 3rem;
+        outline: none;
+        border: none;
+        padding: .5rem 1rem;
+        color: white;
+        font-size: 1.5rem;
+        transition: .3s;
+        flex: 1;
+
+        &::placeholder {
+            color: white;
+        }
+    }
+
+    & .btn {
+        background-color: transparent;
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: .1s ease-in;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &:active {
+            transform: scale(.95);
+        }
+    }
+}
+
+.list__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    &  .list {
+        list-style: none;
+        height: calc(100vh - 220px);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+
+        &__item {
+            margin: 1rem;
+
+          & h2 {
+            font-size: 1.8rem;
+          }
+        }
+    }
+}
+
+.pagination__container {
+    display: flex;
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid rgba($color: #000000, $alpha: .2);
+
+    & .ic_btn {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 1rem;
+
+        & img {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    & .page__label {
+        margin: 0 2rem;
+    }
+}

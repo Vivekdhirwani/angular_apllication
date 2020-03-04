@@ -1,0 +1,50 @@
+
+<div class="container">
+
+    <form [formGroup]='searchForm'>
+        <div class="input__container">
+            <input [(ngModel)]="input" [formControl]="searchForm.get('input')" (keydown.enter)="onKey($event)" class="input" type="text" placeholder="Enter valid number here"/>
+            <button class="btn" (click)="fetchData()">Search</button>
+        </div>
+        <p *ngIf="
+            searchForm.get('input').touched &&
+            searchForm.get('input').hasError('required')
+        " class="error_label" on>Input number should not be empty</p>
+        <p *ngIf="input && input.toString().length !== 7 && input.toString().length !== 10" class="error_label">Input number length should be 7 or 10 only</p>
+    </form>
+
+
+    <div class="list__container">
+        <ul class="list">
+            <h1 *ngIf="data && data.length === 0" align='center'>No Data</h1>
+            <li *ngFor="let item of chunk;" class="list__item">
+                <h2>{{ item }}</h2>
+            </li>
+        </ul>
+    </div>
+
+    <div *ngIf="data" class="pagination__container">
+        <label>No of item per page &nbsp; </label>
+        <select (change)="onPerPageChange(+$event.target.value)">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option selected value="25">25</option>
+        </select>
+        <span class="page__label"> {{(page - 1) * perPage + 1}} - {{((page - 1) * perPage) + perPage}} of {{ totalItem }}</span>
+        <a class="ic_btn" (click)="previous()">
+            <img src="assets/icons/left-arrow.svg" alt="Previous">
+        </a>
+        <a class="ic_btn" (click)="next()">
+            <img src="assets/icons/right-arrow.svg" alt="Next">
+        </a>
+        <p>
+            Page - {{page}} |
+        </p>
+      &nbsp; &nbsp;
+      <p>
+        Total Combinations -
+        {{totalItem}}
+      </p>
+    </div>
+
+</div>
